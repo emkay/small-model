@@ -7,7 +7,7 @@ function Model(attrs, opts) {
     this.attrs = attrs || {};
     this.list = opts.list || undefined;
 
-    if (this.seal) {
+    if (this.sealed) {
         Object.seal(this.attrs);
     }
 }
@@ -17,11 +17,15 @@ Model.prototype.set = function set(key, value) {
         throw new Error('Must have a `key` and `value`');
     }
 
-    this.attrs[key] = value;
+    Object.defineProperty(this.attrs, key, {value: value});
 };
 
 Model.prototype.get = function get(key) {
     return this.attrs[key];
+};
+
+Model.prototype.seal = function seal() {
+    Object.seal(this.attrs);
 };
 
 module.exports = Model;
