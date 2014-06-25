@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/emkay/small-model/issues"
   },
-  "homepage": "https://github.com/emkay/small-model"
+  "homepage": "https://github.com/emkay/small-model",
+  "devDependencies": {
+    "browserify": "^4.1.11",
+    "tape": "^2.13.3",
+    "testling": "^1.7.0"
+  }
 }
