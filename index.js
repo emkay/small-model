@@ -1,6 +1,7 @@
 
 function Model(attrs, opts) {
-    if (!(this instanceof Model)) return new Model(opts);
+    if (!(this instanceof Model)) return new Model(attrs, opts);
+
     opts = opts || {};
 
     this.attrs = attrs || {};
@@ -22,3 +23,5 @@ Model.prototype.set = function set(key, value) {
 Model.prototype.get = function get(key) {
     return this.attrs[key];
 };
+
+module.exports = Model;
